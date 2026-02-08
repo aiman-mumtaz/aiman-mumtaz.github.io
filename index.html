@@ -1,178 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiman Mumtaz | Senior Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"> 
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
     
-    <link rel="stylesheet" href="default.css">
-    
-    <link id="theme-style" rel="stylesheet" href="">
-    <title>Aiman Mumtaz</title>
+    <style>
+        body { scroll-behavior: smooth; transition: background-color 0.3s ease; }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .switch-label { display: flex; align-items: center; cursor: pointer; gap: 10px; }
+        .toggle-bg { position: relative; width: 44px; height: 22px; background-color: #cbd5e1; border-radius: 999px; transition: background-color 0.3s; }
+        .dark .toggle-bg { background-color: #3b82f6; }
+        .toggle-dot { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; background-color: white; border-radius: 50%; transition: transform 0.3s; }
+        .dark .toggle-dot { transform: translateX(22px); }
+        
+        /* Typing Effect */
+        .typing::after { content: '|'; animation: blink 0.7s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
 </head>
-<body>
-    <section class="s1">
-        <div class="main-container">
-            <div class="greeting-wrapper">
-                <h1>Hi, I'm Aiman Mumtaz</h1>
-            </div>
-            <div class="intro-wrapper">
-                <div class="nav-wrapper">
-                    <div class = "dots-wrapper">
-                        <div  id ="dot-1" class="browser-dot"></div>
-                        <div  id ="dot-2" class="browser-dot"></div>
-                        <div  id ="dot-3" class="browser-dot"></div>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold tracking-tighter uppercase">Aiman<span class="text-blue-600">.</span></div>
+
+                <div class="flex items-center gap-6">
+                    <div class="hidden md:flex space-x-6 text-xs font-bold uppercase tracking-widest items-center">
+                        <a href="#about" class="hover:text-blue-600 transition">About</a>
+                        <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
+                        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+                        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+                        <a href="resume/Aiman_Mumtaz_KSA.pdf" download="resume/Aiman_Mumtaz_KSA.pdf" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            Resume
+                        </a>
                     </div>
-                    <ul id="navigation">
-                        <li><a href="#">Contact</a></li>
+
+                    <div class="flex items-center gap-2 border-l border-slate-300 dark:border-slate-700 pl-6">
+                        <label class="switch-label">
+                            <input type="checkbox" id="theme-checkbox" class="hidden">
+                            <div class="toggle-bg"><div class="toggle-dot"></div></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <h2 class="text-blue-600 font-bold mb-4">Hello World, I'm Aiman</h2>
+                <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
+                    I build <br><span id="typing-text" class="text-blue-600 typing"></span>
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl">
+                    Senior Software Engineer with 5 years of experience. Expert in Java (Spring Boot), Modern JS, and Azure. I turn complex data into seamless user experiences.
+                </p>
+                <div class="flex gap-4 justify-center lg:justify-start">
+                    <a href="https://github.com/aiman-mumtaz" class="w-12 h-12 flex items-center justify-center bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-xl hover:-translate-y-1 transition-all shadow-lg"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="https://linkedin.com/in/aiman-mumtaz" class="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-xl hover:-translate-y-1 transition-all shadow-lg shadow-blue-500/20"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="lg:w-1/3 mt-12 lg:mt-0 relative">
+                <div class="absolute -inset-4 bg-blue-500/20 rounded-full blur-3xl"></div>
+                <img src="images/aiman-linkedin.png" alt="Aiman" class="relative rounded-3xl bg-slate-200 dark:bg-slate-800 border-2 border-white dark:border-slate-800 w-72 h-72 mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white dark:bg-slate-900/50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Core Expertise</h2>
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2"><span class="font-bold">Backend (Java/Spring)</span><span>95%</span></div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full"><div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span class="font-bold">Next.js / React</span><span>90%</span></div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full"><div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div></div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2"><span class="font-bold">Azure Cloud / DevOps</span><span>85%</span></div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full"><div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span class="font-bold">Python & Big Data</span><span>80%</span></div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full"><div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-16 border-l-4 border-blue-600 pl-4">Work Experience</h2>
+            <div class="space-y-16">
+                <div class="relative pl-8 border-l border-slate-200 dark:border-slate-800">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-blue-600 rounded-full"></div>
+                    <h3 class="text-2xl font-bold">UnitedHealth Group</h3>
+                    <p class="text-blue-600 font-bold mb-4">Senior Software Engineer | Dec 2021 — Present</p>
+                    <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+                        <li>• Processing 2TB/day via Apache Spark and Azure cloud infrastructure.</li>
+                        <li>• Achieved $500,000 annual cost savings through resource optimization.</li>
+                        <li>• Built enterprise apps reducing integration TAT by 24 hours.</li>
                     </ul>
                 </div>
-                <div class="left-column">
-                    <img src="images/aiman.jpg" id="profile_pic">
-                    <h5 style="text-align: center;line-height: 0;">Personalise Theme</h5>
-                    <div id="theme-options-wrapper">
-                        <div data-mode="light" id ="light-mode" class="theme-dot"></div>
-                        <div data-mode="blue" id ="blue-mode" class="theme-dot"></div>
-                        <div data-mode="green" id ="green-mode" class="theme-dot"></div>
-                        <div data-mode="purple" id ="purple-mode" class="theme-dot"></div>
-                    </div>
-                    <p id="settings-note">*Theme options will be saved for <br>your next visit</p>
-                </div>
-                <div class="right-column">
-                    <div id="preview-shadow">
-                        <div id="preview">
-                            <div id="corner-tl" class="corner"></div>
-                            <div id="corner-tr" class="corner"></div>
-                            <h3>What I Do</h3>
-                            <p>Full Stack Web Developer Looking For a Job :)</p>
-                            <div id="corner-br" class="corner"></div>
-                            <div id="corner-bl" class="corner"></div>   
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="s2">
-        <div class="main-container">
-            <div class="about-wrapper">
-                <div class="about-me">
-                    <h4>More about me</h4>
-                    <p>I'm a final year Engineering student from Jamia Millia Islamia. <br>
-                        I like to build new projects just to tickle my brain.</p>
-
-                    <p>While I keep busy building new stuff, I am keenly looking forward to working
-                        with a great team and on projects that interest me.</p>
-            
-                    <hr>
-
-                    <h4>TOP EXPERTISE</h4>
-                    <p>Fullstack Web developer with primary focus on Nodejs + 
-                        React: <a target="_blank" href="Aiman_CV.pdf">Download Resume</a></p>
-                    
-                    <div id="skills">
-                        <ul>
-                            <li>C++</li>
-                            <li>Nodejs</li>
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>MongoDB</li>    
-                        </ul>
-                        <ul>
-                            <li>MySQL</li>
-                            <li>Bootstrap</li>
-                            <li>Python</li>
-                            <li>Heroku</li>
-                            <li>HTMl/CSS</li>    
-                        </ul>
-                    </div>
-                </div>
-                  
-                <div class="social-links">
-                    <img id="social_img" src="images/linkedin.PNG">
-                    <img id="social_img" src="images/github.PNG">
-                    <h3>Find me on LinkedIn and Github</h3>
-                    <p><a target="_blank" href="https://www.linkedin.com/in/aiman-mumtaz-131097174/">LinkedIn: @AimanMumtaz</a></p>
-                    <br>
-                    <p><a href="https://github.com/aiman-mumtaz" target="_blank">Github: @aiman-mumtaz</a></p>
+                <div class="relative pl-8 border-l border-slate-200 dark:border-slate-800">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-slate-400 rounded-full"></div>
+                    <h3 class="text-2xl font-bold">WebMD</h3>
+                    <p class="text-slate-500 font-bold mb-4">Software Engineer | 2021</p>
+                    <p class="text-slate-600 dark:text-slate-400">Implemented Docker-based CI/CD pipelines, reducing deployment time by 30%.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="s1">
-        <div class="main-container">
-            <h3 style="text-align: center;">Some of my projects</h3>
-               
-            <div class="post-wrapper">
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="images/charity.jpg">
-                        <div class="post-preview">
-                            <h6 class="post-title">Backing Brilliance Charity</h6>
-                            <p class="post-intro">Created a donation website with 
-                                payment gateway integration. Built with Express, HTML, 
-                                CSS, JavaScript and Razorpay. Created this project as a task for my internship
-                                at the Sparks Foundation.</p>
-                            <a target="_blank" href="https://github.com/aiman-mumtaz/Payment-Gateway-Integration">Find More</a>
-                        </div>
+    <section id="projects" class="py-24 bg-slate-100 dark:bg-slate-900 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-16 text-center">Selected Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center rounded-lg mb-6"><i class="fas fa-brain fa-lg"></i></div>
+                    <h3 class="text-xl font-bold mb-4">LinkedIn Roast (Viral AI App)</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Full-stack app using Grok API to provide brutally honest profile analysis. Next.js 16 + React 19.</p>
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">NEXT.JS</span>
+                        <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">AI</span>
                     </div>
                 </div>
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="images/banking.jpg">
-                        <div class="post-preview">
-                            <h6 class="post-title">Banking Website</h6>
-                                <p class="post-intro">Created an Online Banking website that handles transfer
-                                    of money between multiple users. Built with Express, HTML, 
-                                    CSS, JavaScript and MongoDB.Created this project as a task for my internship
-                                    at the Sparks Foundation.</p>
-                                <a target="_blank" href="https://github.com/aiman-mumtaz/Basic-Banking-System">Find More</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="post">
-                        <img src="images/yelpcamp.jpg">
-                        <div class="post-preview">
-                            <h6 class="post-title">YelpCamp</h6>
-                                <p class="post-intro">A campground managing website with user authorisation, 
-                                    admin and like/comment features.Built with Express,HTML, 
-                                    CSS,JavaScript and MongoDB.Tools used are passport,nodemailer and connect-flash.Deployed with Heroku.</p>
-                            
-                                    <a target="_blank" href="https://github.com/aiman-mumtaz/yelp-camp">Find More</a>
-                            </div>
+                <div class="p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center rounded-lg mb-6"><i class="fas fa-file-code fa-lg"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Enterprise File Validator</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Python framework for automated reconciliation of massive datasets during system migrations.</p>
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">PYTHON</span>
+                        <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded">STREAMLIT</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="s2">
-        <div class="main-container">
-            <h3 style="text-align: center;">Get In Touch</h3>
-            <form id="contact-form">
-                <label>Name</label>
-                <input type="text" name="name" class="input-field">
-                
-                <label>Subject</label>
-                <input type="text" name="subject" class="input-field">
-                
-                <label>Email</label>
-                <input type="text" name="email" class="input-field">
-                
-                <label>Message</label>
-                <textarea name="message" class="input-field"></textarea>
-                
-                
-                
-                <input id=submit-btn type="submit" value="Send">
-            
-            </form>
+
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Education</h2>
+            <div class="p-8 border border-slate-200 dark:border-slate-800 rounded-2xl inline-block">
+                <h3 class="text-xl font-bold">Jamia Millia Islamia</h3>
+                <p class="text-blue-600">B.Tech in Computer Engineering</p>
+                <p class="text-sm text-slate-500 mt-2">New Delhi, India</p>
+            </div>
         </div>
     </section>
-    <script type="text/javascript" src="script.js"></script>
+
+    <section id="contact" class="py-24 bg-blue-600 text-white px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-6">Let's build something great.</h2>
+            <p class="text-blue-100 mb-10">Available for collaborations and senior engineering roles.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="mailto:aimanmumtaz001@gmail.com" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:scale-105 transition">Email Me</a>
+                <a href="https://linkedin.com/in/aiman-mumtaz" class="bg-blue-700 text-white px-8 py-4 rounded-xl font-bold border border-blue-400 hover:scale-105 transition">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-slate-400 text-xs">
+        <p>© 2025 Aiman Mumtaz | Made with ❤️ and Tailwind</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeCheckbox = document.getElementById('theme-checkbox');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'light') {
+            html.classList.remove('dark');
+            themeCheckbox.checked = false;
+        } else {
+            html.classList.add('dark');
+            themeCheckbox.checked = true;
+        }
+
+        themeCheckbox.addEventListener('change', () => {
+            if (themeCheckbox.checked) {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Typing Effect Logic
+        const words = ["Scalable Systems", "Enterprise Apps", "Cloud Solutions", "AI Tools"];
+        let i = 0;
+        let j = 0;
+        let currentWord = "";
+        let isDeleting = false;
+
+        function type() {
+            currentWord = words[i];
+            if (isDeleting) {
+                document.getElementById("typing-text").textContent = currentWord.substring(0, j - 1);
+                j--;
+                if (j == 0) {
+                    isDeleting = false;
+                    i++;
+                    if (i == words.length) i = 0;
+                }
+            } else {
+                document.getElementById("typing-text").textContent = currentWord.substring(0, j + 1);
+                j++;
+                if (j == currentWord.length) isDeleting = true;
+            }
+            setTimeout(type, isDeleting ? 100 : 200);
+        }
+        type();
+    </script>
 </body>
 </html>

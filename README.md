@@ -1,2 +1,0 @@
-# aiman-portfolio
-My Portfolio
